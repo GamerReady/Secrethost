@@ -1,3 +1,5 @@
+print("Tx3Xploit is ready")
+print("Enjoy Tx3Xploit ;)")
 local Tx3Xploit = Instance.new("ScreenGui")
 local opengui = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
