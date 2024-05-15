@@ -195,12 +195,24 @@ execute.TextSize = 14.000
 execute.TextWrapped = true
 execute.MouseButton1Down:connect(function()
     if exedbox.Visible == true then
-    loadstring(exedbox.Text)()
+        local code = exedbox.Text
+        if code:find('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()') then
+            code = code:gsub('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()', 'loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()')
+        end
+        loadstring(code)()
     elseif exedboxtab2.Visible == true then
-    loadstring(exedboxtab2.Text)()
+        local code = exedboxtab2.Text
+        if code:find('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()') then
+            code = code:gsub('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()', 'loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()')
+        end
+        loadstring(code)()
     else
-    loadstring(exedboxtab3.Text)()
- end
+        local code = exedboxtab3.Text
+        if code:find('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()') then
+            code = code:gsub('loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()', 'loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()')
+        end
+        loadstring(code)()
+    end
 end)
 
 UICorner_4.Parent = execute
@@ -650,7 +662,7 @@ prisonlifehub.TextScaled = true
 prisonlifehub.TextSize = 14.000
 prisonlifehub.TextWrapped = true
 prisonlifehub.MouseButton1Down:connect(function()
-    print("hello")
+    loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
 end)
 
 UICorner_29.Parent = prisonlifehub
