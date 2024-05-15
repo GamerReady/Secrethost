@@ -194,22 +194,24 @@ execute.TextScaled = true
 execute.TextSize = 14.000
 execute.TextWrapped = true
 execute.MouseButton1Down:connect(function()
-    local code = ""
     if exedbox.Visible == true then
-        code = exedbox.Text
+        if exedbox.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
+            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
+        else
+            loadstring(exedbox.Text)()
+        end
     elseif exedboxtab2.Visible == true then
-        code = exedboxtab2.Text
+        if exedboxtab2.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
+            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
+        else
+            loadstring(exedboxtab2.Text)()
+        end
     else
-        code = exedboxtab3.Text
-    end
-    
-    local UncOrg = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()'
-    local BttrUnc = 'loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()'
-    
-    if code:find(UncOrg) then
-        loadstring(BttrUnc)()
-    else
-        loadstring(code)()
+        if exedboxtab3.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
+            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
+        else
+            loadstring(exedboxtab3.Text)()
+        end
     end
 end)
 
