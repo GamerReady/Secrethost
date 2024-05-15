@@ -656,7 +656,7 @@ prisonlifehub.TextScaled = true
 prisonlifehub.TextSize = 14.000
 prisonlifehub.TextWrapped = true
 prisonlifehub.MouseButton1Down:connect(function()
-    local load = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"
+    local load = "https://pastebin.com/raw/qGXRcXpP"
     local raw = game:HttpGet(load)
 
     loadstring(raw)()
