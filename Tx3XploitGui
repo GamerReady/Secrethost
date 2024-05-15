@@ -194,22 +194,19 @@ execute.TextScaled = true
 execute.TextSize = 14.000
 execute.TextWrapped = true
 execute.MouseButton1Down:connect(function()
-    if exedbox.Visible == true then
-        if exedbox.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
-            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
-        else
-            loadstring(exedbox.Text)()
-        end
-    elseif exedboxtab2.Visible == true then
-        if exedboxtab2.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
-            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
-        else
-            loadstring(exedboxtab2.Text)()
-        end
+    local unc = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"    
+    if exedbox.Visible and string.find(exedbox.Text, unc) then
+        loadstring("https://pastebin.com/raw/qGXRcXpP")()
+    elseif exedboxtab2.Visible and string.find(exedboxtab2.Text, unc) then
+        loadstring("https://pastebin.com/raw/qGXRcXpP")()
+    elseif exedboxtab3.Visible and string.find(exedboxtab3.Text, unc) then
+        loadstring("https://pastebin.com/raw/qGXRcXpP")()
     else
-        if exedboxtab3.Text == 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"))()' then
-            loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
-        else
+        if exedbox.Visible then
+            loadstring(exedbox.Text)()
+        elseif exedboxtab2.Visible then
+            loadstring(exedboxtab2.Text)()
+        elseif exedboxtab3.Visible then
             loadstring(exedboxtab3.Text)()
         end
     end
