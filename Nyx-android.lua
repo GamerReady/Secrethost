@@ -91,7 +91,7 @@ TextButton.TextSize = 15.000
 TextButton.TextWrapped = true
 TextButton.MouseButton1Down:connect(function()
     local unc = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"
-    if uncfind(exedbox.Text, unc) then
+    if uncfind(TextBox.Text, unc) then
         loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
     else
         loadstring(TextBox.Text)()
