@@ -97,7 +97,7 @@ TextButton.TextColor3 = Color3.fromRGB(218, 218, 218)
 TextButton.TextSize = 15.000
 TextButton.TextWrapped = true
 TextButton.MouseButton1Down:connect(function()
-        loadstring(game:HttpGet(textbox.Text)()
+        loadstring(textbox.Text)()
     end
 end)
 
