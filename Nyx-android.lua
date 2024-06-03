@@ -1,7 +1,3 @@
-local function uncfind(text, searchunc)
-    return string.find(text, searchunc, 1, true) ~= nil
-end
-
 print("Nyx Android Loaded")
 local NyxUI = Instance.new("ScreenGui")
 local openclose = Instance.new("ImageButton")
@@ -101,11 +97,7 @@ TextButton.TextColor3 = Color3.fromRGB(218, 218, 218)
 TextButton.TextSize = 15.000
 TextButton.TextWrapped = true
 TextButton.MouseButton1Down:connect(function()
-	local unc = "https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua"
-    if uncfind(TextBox.Text, unc) then
-        loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))()
-    else
-        loadstring(TextBox.Text)()
+        loadstring(game:HttpGet("https://pastebin.com/raw/qGXRcXpP"))(
     end
 end)
 
