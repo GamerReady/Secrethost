@@ -317,13 +317,13 @@ local framework = setmetatable({
 do
 	--[[ Enum ]]--
 
-	local codexEnum = {};
+	local TechnoEnum = {};
 
-	function codexEnum.__index(t, k)
-		return t._map[k] or codexEnum[k];
+	function TechnoEnum.__index(t, k)
+		return t._map[k] or TechnoEnum[k];
 	end
 
-	function codexEnum.new(items: {any}): {any}
+	function TechnoEnum.new(items: {any}): {any}
 		local map = {};
 
 		for i, v in items do
@@ -333,17 +333,17 @@ do
 		return setmetatable({
 			_map = map,
 			_items = items
-		}, codexEnum);
+		}, TechnoEnum);
 	end
 
-	function codexEnum:GetEnumItems()
+	function TechnoEnum:GetEnumItems()
 		return self._items;
 	end
 
 	--[[ Module ]]--
 
-	framework.dependencies.codexEnum = {
-		NavbarState = codexEnum.new({ "Hidden", "Partial", "Full" })
+	framework.dependencies.TechnoEnum = {
+		NavbarState = TechnoEnum.new({ "Hidden", "Partial", "Full" })
 	};
 end
 
@@ -599,7 +599,7 @@ do
 	-- SPDM
 	function utils:Notify(text: string)
 		cloneref(game:GetService("StarterGui")):SetCore("SendNotification", {
-			Title = "Codex " .. (isiosdevice() and "iOS" or "Android"),
+			Title = "Techno " .. (isiosdevice() and "iOS" or "Android"),
 			Text = text
 		});
 	end
@@ -684,7 +684,7 @@ do
 	function internalSettings:Initialize()
 		local data = backup;
 		if identifyexecutor then
-			local hostData = internalUtils:Request(isiosdevice() and "https://rblxexploits.com/codexiosUI.json" or "https://rblxexploits.com/codexUI.json");
+			local hostData = internalUtils:Request(isiosdevice() and "https://rblxexploits.com/TechnoiosUI.json" or "https://rblxexploits.com/TechnoUI.json");
 			if not hostData then
 				internalUtils:Notify("An error occured. Code: 001")
 				return;
@@ -767,8 +767,8 @@ do
 	end
 
 	local function loadScriptCache()
-		if isarceusfile and isarceusfile("data/codexScriptCache.json") then
-			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexScriptCache.json"));
+		if isarceusfile and isarceusfile("data/TechnoScriptCache.json") then
+			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/TechnoScriptCache.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
 				local cache = {};
@@ -805,7 +805,7 @@ do
 			for i, v in cache do
 				v.onAutoExecuteToggled = nil;
 			end
-			writearceusfile("data/codexScriptCache.json", httpService:JSONEncode(cache));
+			writearceusfile("data/TechnoScriptCache.json", httpService:JSONEncode(cache));
 		end
 	end
 
@@ -914,7 +914,7 @@ do
 
 	local function saveUserSettings()
 		if writearceusfile then
-			writearceusfile("data/codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
+			writearceusfile("data/TechnoSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
 		end
 	end
 
@@ -947,8 +947,8 @@ do
 			makearceusfolder("data");
 		end
 
-		if isarceusfile and isarceusfile("data/codexSettings.json") then
-			local succ, res = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexSettings.json"));
+		if isarceusfile and isarceusfile("data/TechnoSettings.json") then
+			local succ, res = pcall(httpService.JSONDecode, httpService, readarceusfile("data/TechnoSettings.json"));
 			if succ then
 				tableUtils:DeepOverwrite(settingsCache, res);
 			else
@@ -1009,8 +1009,8 @@ do
 	end
 
 	local function loadTabCache()
-		if isarceusfile and isarceusfile("data/codexTabs.json") then
-			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexTabs.json"));
+		if isarceusfile and isarceusfile("data/TechnoTabs.json") then
+			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/TechnoTabs.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
 				local cache = {};
@@ -1099,7 +1099,7 @@ do
 
 	function tabSystem:Save()
 		if writearceusfile then
-			writearceusfile("data/codexTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
+			writearceusfile("data/TechnoTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
 		end
 	end
 
@@ -2908,8 +2908,8 @@ do
 					optionType = "toggle",
 					state = false,
 					callback = function(state)
-						if state == false and isfile and isfile("codexTabs.json") then
-							delfile("codexTabs.json");
+						if state == false and isfile and isfile("TechnoTabs.json") then
+							delfile("TechnoTabs.json");
 						end
 					end
 				},
@@ -4080,7 +4080,7 @@ do
 
 	local function checkWhitelist()
 		if getgenv then
-			-- return internalUtils:Request("https://api.codex.lol/v1/auth/authenticate", "POST") ~= false;
+			-- return internalUtils:Request("https://api.Techno.lol/v1/auth/authenticate", "POST") ~= false;
 			return true;
 		end
 		return false;
@@ -4147,7 +4147,7 @@ do
 		ui.whitelist.Visible = isMainTab;
 		ui.changelog.Visible = isMainTab;
 		ui.specialUserInput.Visible = not isMainTab;
-		ui.note.Text = isMainTab and "Please complete the whitelist to gain access to Codex" or "Please enter your key to activate your Premium License";
+		ui.note.Text = isMainTab and "Please complete the whitelist to gain access to Techno" or "Please enter your key to activate your Premium License";
 	end
 
 	local function createUI(directory: Instance): ScreenGui
@@ -4182,7 +4182,7 @@ do
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				Name = "title",
 				Position = UDim2.new(0.5, 0, 0.2, -20),
-				Text = "Codex " .. (isiosdevice() and "iOS" or "Android"),
+				Text = "Techno " .. (isiosdevice() and "iOS" or "Android"),
 				TextSize = 24
 			}),
 			textLabel({
@@ -4190,7 +4190,7 @@ do
 				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
 				Name = "note",
 				Position = UDim2.new(0.5, 0, 0.2, 2),
-				Text = "Please complete the whitelist to gain access to Codex",
+				Text = "Please complete the whitelist to gain access to Techno",
 				TextColor3 = Color3.fromRGB(159, 164, 186)
 			}),
 			instanceUtils:Create("Frame", {
@@ -4218,9 +4218,9 @@ do
 					AutomaticSize = Enum.AutomaticSize.None,
 					MouseButton1Click = function()
 						if setclipboard then
-							local data = internalUtils:Request("https://api.codex.lol/v1/auth/session", "POST");
+							local data = internalUtils:Request("https://api.Techno.lol/v1/auth/session", "POST");
 							if data then
-								setclipboard("https://mobile.codex.lol?token=" .. httpService:JSONDecode(data).token);
+								setclipboard("https://mobile.Techno.lol?token=" .. httpService:JSONDecode(data).token);
 								internalUtils:Notify("Whitelist link has been set to your clipboard.")
 								return
 							end
@@ -4252,7 +4252,7 @@ do
 					AutomaticSize = Enum.AutomaticSize.None,
 					MouseButton1Click = function()
 						if setclipboard then
-							setclipboard("https://codexseller.mysellix.io/");
+							setclipboard("https://Technoseller.mysellix.io/");
 						end
 						internalUtils:Notify("Premium License purchase link has been set to your clipboard.")
 					end,
@@ -4293,7 +4293,7 @@ do
 					MouseButton1Click = function()
 						local key = ui.specialUserInput.key.Text;
 						if #key > 0 then
-							local res = internalUtils:Request("https://api.codex.lol/v1/auth/claim", "POST", {
+							local res = internalUtils:Request("https://api.Techno.lol/v1/auth/claim", "POST", {
 								["Content-Type"] = "application/json"
 							}, {
 								key = key
@@ -4322,13 +4322,13 @@ do
 		});
 
 		task.spawn(function()
-			local dataStep = startupStep.new("Fetching Codex Data...", "Data Fetched!", ui.whitelist.process):Start();
+			local dataStep = startupStep.new("Fetching Techno Data...", "Data Fetched!", ui.whitelist.process):Start();
 			internalSettings:Initialize();
 
 			changelog().Parent = ui;
 			local currentVersion = identifyexecutor and select(2, identifyexecutor()) or "Invalid Version";
 			if not (cloneref(game:GetService("RunService")):IsStudio() or internalUtils:AreVersionsAlike(currentVersion, isiosdevice() and internalSettings.data.iosVersion or internalSettings.data.androidVersion)) then
-				dataStep:Complete("Please update Codex.");
+				dataStep:Complete("Please update Techno.");
 				return;
 			end
 			dataStep:Complete();
@@ -4384,7 +4384,7 @@ do
 	local navbarButton = framework.components.navbarButton;
 	local instanceUtils = framework.dependencies.utils.instance;
 	local mathsUtils = framework.dependencies.utils.maths;
-	local codexEnum = framework.dependencies.codexEnum;
+	local TechnoEnum = framework.dependencies.TechnoEnum;
 	local internalUtils = framework.dependencies.utils.internal;
 	local userSettings = framework.data.userSettings;
 
@@ -4413,7 +4413,7 @@ do
 					if input.UserInputState == Enum.UserInputState.End then
 						isDragging = false;
 						endedConn:Disconnect();
-						navbar:SetState(codexEnum.NavbarState[input.Position.X > 140 and "Full" or input.Position.X > 40 and "Partial" or "Hidden"]);
+						navbar:SetState(TechnoEnum.NavbarState[input.Position.X > 140 and "Full" or input.Position.X > 40 and "Partial" or "Hidden"]);
 					end
 				end);
 			end
@@ -4477,8 +4477,8 @@ do
 					AnchorPoint = Vector2.new(0.5, 0.5),
 					BackgroundTransparency = 1, 
 					BorderSizePixel = 0, 
-					Image = "rbxassetid://11558559086", 
-					Name = "codexIcon2", 
+					Image = "rbxassetid://18169361319", 
+					Name = "TechnoIcon2", 
 					Position = UDim2.new(0.5, 0 ,0.5, 0), 
 					Size = UDim2.new(1,0,1,0),
 					ZIndex = 2
@@ -4523,8 +4523,8 @@ do
 				instanceUtils:Create("ImageLabel", { 
 					BackgroundTransparency = 1, 
 					BorderSizePixel = 0, 
-					Image = "rbxassetid://11558559086", 
-					Name = "codexIcon", 
+					Image = "rbxassetid://18169361319", 
+					Name = "TechnoIcon", 
 					Position = UDim2.new(0, 20, 0, 30), 
 					Size = UDim2.new(0, 36, 0, 36),
 					ZIndex = 2
@@ -4535,7 +4535,7 @@ do
 					FontSize = Enum.FontSize.Size18, 
 					Name = "title", 
 					Position = UDim2.new(0, 78, 0, 38), 
-					Text = "Codex " .. (isiosdevice() and "iOS" or "Android"),
+					Text = "Techno " .. (isiosdevice() and "iOS" or "Android"),
 					TextColor3 = Color3.fromHex("ffffff"), 
 					TextSize = 16, 
 					TextTransparency = 1,
@@ -4581,7 +4581,7 @@ do
 				streak = 0
 			}
 			
-			local response = internalUtils:Request("https://api.codex.lol/v1/auth/authenticate", "POST")
+			local response = internalUtils:Request("https://api.Techno.lol/v1/auth/authenticate", "POST")
 			if response then
 				local success, err = pcall(function()
 					data = httpService:JSONDecode(response)
@@ -4780,7 +4780,7 @@ do
 				wait(.15)
 			end
 			
-			navbar:SetState(codexEnum.NavbarState["Partial"])
+			navbar:SetState(TechnoEnum.NavbarState["Partial"])
 		end)
 
 		bar.indent:GetPropertyChangedSignal("Value"):Connect(function()
@@ -4788,7 +4788,7 @@ do
 			local percentage = (math.clamp(value, 76, 260) - 76) / 184;
 
 			navbar.bar.Size = UDim2.new(0, value, 1, 0);
-			navbar.bar.main.codexIcon.Size = UDim2.new(0, 36 + percentage * 12, 0, 36 + percentage * 12);
+			navbar.bar.main.TechnoIcon.Size = UDim2.new(0, 36 + percentage * 12, 0, 36 + percentage * 12);
 			navbar.bar.main.title.TextTransparency = 1 - percentage;
 			navbar.bar.main.poweredBy.TextTransparency = 0.2 + (1 - percentage) * 0.8;
 			for i, v in map do
@@ -4834,7 +4834,7 @@ do
 			self:Add(module.title, module.icon, module:Initialize(), module.overwritePosition);
 		end
 
-		self:SetState(codexEnum.NavbarState.Full, true);
+		self:SetState(TechnoEnum.NavbarState.Full, true);
 	end
 
 	function navbar:Add(text: string, icon: string, designatedFrame: Frame, overwritePosition: UDim2?)
@@ -4860,9 +4860,9 @@ do
 
 	function navbar:SetState(navbarState: number, ignoreTimeouts: boolean?)
 		local indent, state = 0, "hidden";
-		if navbarState == codexEnum.NavbarState.Partial or (navbarState == codexEnum.NavbarState.Hidden and selected) then
+		if navbarState == TechnoEnum.NavbarState.Partial or (navbarState == TechnoEnum.NavbarState.Hidden and selected) then
 			indent, state = 76, "partial";
-		elseif navbarState == codexEnum.NavbarState.Full then
+		elseif navbarState == TechnoEnum.NavbarState.Full then
 			indent, state = 260, "full";
 		end
 
@@ -4890,14 +4890,14 @@ do
 		if state ~= "hidden" and not ignoreTimeouts then
 			self.timeoutDelay = task.delay(10, function()
 				if self.state == state then
-					self:SetState(codexEnum.NavbarState.Hidden);
+					self:SetState(TechnoEnum.NavbarState.Hidden);
 				end
 			end);
 
 			self.nextInputCheck = userInputService.InputBegan:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 					if self.state ~= "hidden" and input.Position.X > self.bar.indent.Value then
-						self:SetState(codexEnum.NavbarState.Hidden);
+						self:SetState(TechnoEnum.NavbarState.Hidden);
 					end
 				end
 			end);
@@ -4986,7 +4986,7 @@ do
 					task.delay(delayTime, function() self.bar.floatingIcon.Visible = self.state == "hidden" end)
 
 					createTween(self.bar.floatingIcon, {BackgroundTransparency = targetTransparency, Size = targetSize}):Play()
-					createTween(self.bar.floatingIcon.codexIcon2, {ImageTransparency = targetTransparency == 0.5 and 0 or 1}):Play()
+					createTween(self.bar.floatingIcon.TechnoIcon2, {ImageTransparency = targetTransparency == 0.5 and 0 or 1}):Play()
 				end
 				end,
 			["Invisible Edge Swipe"] = 
@@ -5018,7 +5018,7 @@ do
 		end
 		selected = button;
 		selected:Highlight(true);
-		self:SetState(codexEnum.NavbarState.Partial);
+		self:SetState(TechnoEnum.NavbarState.Partial);
 		instanceUtils:Tween(self.background, 0.2, {
 			BackgroundTransparency = 0.1
 		});
@@ -6131,7 +6131,7 @@ do
 	framework.init = (function()
 		local sig = signal.new();
 		local directory = instanceUtils:DynamicParent(instanceUtils:Create("Folder", {
-			Name = "Codex"
+			Name = "Techno"
 		}));
 		local login;
 
