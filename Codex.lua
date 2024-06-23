@@ -1117,13 +1117,13 @@ do
 
 	framework.components.editorButton = (function(title: string, icon: string, overwriteProps: {any}?, foreground: Color3?): Instance
 		return instanceUtils:Create("TextButton", tableUtils:DeepOverwrite({ 
-			BackgroundColor3 = Color3.fromHex("3a3a4a"), 
+			BackgroundColor3 = Color3.fromHex("2F0604"), 
 			BorderSizePixel = 0, 
 			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal), 
 			Name = stringUtils:ConvertToCamelCase(title), 
 			Size = UDim2.new(0, 50, 0, 50), 
 			Text = "", 
-			TextColor3 = Color3.fromHex("1b2a35"),
+			TextColor3 = Color3.fromHex("2F0604"),
 			ZIndex = 2
 		}, overwriteProps, true), {
 			instanceUtils:Create("UICorner", { 
@@ -1134,7 +1134,7 @@ do
 				BackgroundTransparency = 1, 
 				BorderSizePixel = 0, 
 				Image = icon, 
-				ImageColor3 = foreground or Color3.fromHex("9fa4ba"), 
+				ImageColor3 = foreground or Color3.fromHex("2F0604"), 
 				Name = "icon", 
 				Position = UDim2.new(0.5, 0, 0.5, 0), 
 				Size = UDim2.new(0, 28, 0, 28),
@@ -1158,7 +1158,7 @@ do
 	local function createButton(title: string): Instance
 		return instanceUtils:Create("TextButton", { 
 			AutoButtonColor = false, 
-			BackgroundColor3 = Color3.fromHex("3a3a4a"), 
+			BackgroundColor3 = Color3.fromHex("2F0604"), 
 			BorderSizePixel = 0, 
 			FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal), 
 			Name = stringUtils:ConvertToCamelCase(title), 
@@ -1197,7 +1197,7 @@ do
 				Position = UDim2.new(0.5, 0, 0.5, 0), 
 				Size = UDim2.new(1, -18, 1, 0), 
 				Text = title, 
-				TextColor3 = Color3.fromHex("9fa4ba"), 
+				TextColor3 = Color3.fromHex("2F0604"), 
 				TextSize = 14, 
 				TextXAlignment = Enum.TextXAlignment.Left
 			})
